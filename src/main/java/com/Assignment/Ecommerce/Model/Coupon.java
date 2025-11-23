@@ -6,6 +6,7 @@ import com.Assignment.Ecommerce.enums.COUPON_TYPES;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDate;
 import java.util.Map;
 
 @Document("coupons")
@@ -16,9 +17,25 @@ public class Coupon {
     private COUPON_TYPES type;
     private Map<String,Object> details;
     private Map<String,Object>conditions;
-
+    private LocalDate expiryDate;
     public String getId() {
         return id;
+    }
+
+    public LocalDate getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(LocalDate expiryDate) {
+        this.expiryDate = expiryDate;
+    }
+
+    public Map<String, Object> getConditions() {
+        return conditions;
+    }
+
+    public void setConditions(Map<String, Object> conditions) {
+        this.conditions = conditions;
     }
 
     public void setId(String id) {

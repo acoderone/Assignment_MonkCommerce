@@ -24,14 +24,18 @@ public class CouponController {
         return ResponseEntity.ok().body(couponService.getCoupons());
     }
 
-    @GetMapping("/coupons/${id}")
+    @GetMapping("/coupons/{id}")
     public ResponseEntity<Coupon>getCouponById(@PathVariable String id){
         return ResponseEntity.ok().body(couponService.getCouponById(id));
     }
 
-    @PutMapping("/coupons/${id}")
+    @PutMapping("/coupons/{id}")
     public ResponseEntity<Coupon>updateCouponById(@PathVariable String id,@RequestBody Coupon coupon){
         return ResponseEntity.ok().body(couponService.updateCouponDetails(id,coupon));
     }
 
+    @DeleteMapping("/coupons/{id}")
+    public ResponseEntity<String>deleteCouponById(@PathVariable String id){
+        return ResponseEntity.ok().body(couponService.deleteCoupon(id));
+    }
 }
